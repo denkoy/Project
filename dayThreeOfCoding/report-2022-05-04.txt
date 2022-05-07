@@ -1,0 +1,4 @@
+room number: 253, total days of reservation: 7
+
+room number: 243, total days of reservation: 9
+
