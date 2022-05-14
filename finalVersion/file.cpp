@@ -142,13 +142,24 @@ public:
         {
             if (_number == list[i].getNumber())
             {
-                list[i].setendDate(_endDate);
-                list[i].setstartDate(_startDate);
-                list[i].setName(_name);
-                list[i].setisBusy(1);
-                cout << _name << ", you sucessfully reserved a room!" << endl;
-                break;
+                if (list[i].getisBusy() == 1)
+                {
+                    cout << "Cant reserve unavailable room!" << endl;
+                    break;
+                }
+                else
+                {
+                    list[i].setendDate(_endDate);
+                    list[i].setstartDate(_startDate);
+                    list[i].setName(_name);
+                    list[i].setisBusy(1);
+                    cout << _name << ", you sucessfully reserved a room!" << endl;
+                    break;
+                }
+              
             }
+            
+ 
         }
     }
     //Извежда списък на свободните стаи за дадена дата
@@ -350,7 +361,7 @@ public:
                         {
 
                             const int totalDays = (((curreyears - currsyears) * 365) + ((curremonths - currsmonths) * 30) + ((curredays - currsdays)));
-                            if (totalDays > 0)
+                            if (totalDays > 0 && totalDays < 10000)
                             {
                             
                             listing << "room number: " << roomNumber << ", total days of reservation: " << totalDays << endl;
